@@ -72,7 +72,12 @@ const VideoCard = ({
             snippet.chnnelId ? `/channel/${snippet.channelId}` : demoChannelUrl
           }
         >
-          <Typography variant="subtitle2" fontWeight="bold" color="grey">
+          <Typography
+            variant="subtitle2"
+            fontWeight="bold"
+            color="grey"
+            sx={{ textDecoration: "none" }}
+          >
             {snippet?.channelTitle?.slice(0, 60) || demoChannelTitle}
             <CheckCircle
               sx={{

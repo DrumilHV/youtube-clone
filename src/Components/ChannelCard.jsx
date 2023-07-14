@@ -16,9 +16,13 @@ const ChannelCard = ({ channelDetail, marginTop }) => (
       height: "326px",
       margin: "auto",
       marginTop,
+      textDecoration: "none",
     }}
   >
-    <Link to={`/channel/${channelDetail?.id?.channelId}`}>
+    <Link
+      to={`/channel/${channelDetail?.id?.channelId}`}
+      style={{ textDecoration: "none" }}
+    >
       <CardContent
         sx={{
           display: "flex",
@@ -26,6 +30,7 @@ const ChannelCard = ({ channelDetail, marginTop }) => (
           justifyContent: "center",
           textAlign: "center",
           color: "#fff",
+          textDecoration: "none",
         }}
       >
         <CardMedia
@@ -39,12 +44,18 @@ const ChannelCard = ({ channelDetail, marginTop }) => (
             width: "180px",
             mb: 2,
             border: "1px solid #e3e3e3",
+            textDecoration: "none",
           }}
         />
         <Typography variant="h6">
           {channelDetail?.snippet?.title}{" "}
           <CheckCircleIcon
-            sx={{ fontSize: "14px", color: "gray", ml: "5px" }}
+            sx={{
+              fontSize: "14px",
+              color: "gray",
+              ml: "5px",
+              textDecoration: "none",
+            }}
           />
         </Typography>
         {channelDetail?.statistics?.subscriberCount && (
