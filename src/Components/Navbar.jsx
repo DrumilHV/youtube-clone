@@ -3,13 +3,13 @@ import { Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import { logo } from "../utils/constants";
 import { Avatar } from "@mui/material";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SearchBar from "./SearchBar";
 const Navbar = () => {
   const [isLogin, setIsLogin] = useState(false);
   const checkAndSend = () => {
     if (isLogin) {
       return <Avatar>D</Avatar>;
+      setIsLogin(isLogin);
     } else {
       return (
         <Link to="/login">
