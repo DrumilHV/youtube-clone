@@ -12,7 +12,7 @@ const options = {
   },
   headers: {
     // "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
-    // "X-RapidAPI-Key": "e6db60f357mshb99a6e95cabd4b8p18cf30jsn047fc4fad40a",
+    "X-RapidAPI-Key": "e6db60f357mshb99a6e95cabd4b8p18cf30jsn047fc4fad40a",
     "X-RapidAPI-Host": "youtube-v31.p.rapidapi.com",
   },
 };
