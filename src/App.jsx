@@ -7,6 +7,8 @@ import {
   SearchFeed,
   Navbar,
   ChannelDetails,
+  Login,
+  Register,
 } from "./Components/index";
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
           <Route path="/video/:id" element={<VideoDetail />} />
           <Route path="/channel/:id" element={<ChannelDetails />} />
           <Route path="/search/:searchTerm" element={<SearchFeed />} />
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/register" element={<Register />}></Route>
         </Routes>
       </Box>
     </BrowserRouter>

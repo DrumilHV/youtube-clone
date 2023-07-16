@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import { logo } from "../utils/constants";
+import { Avatar } from "@mui/material";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SearchBar from "./SearchBar";
 const Navbar = () => {
+  const [isLogin, setIsLogin] = useState(false);
+  const checkAndSend = () => {
+    if (isLogin) {
+      return <Avatar>D</Avatar>;
+    } else {
+      return (
+        <Link to="/login">
+          <Avatar style={{ fontSize: "10px" }}>Login</Avatar>
+        </Link>
+      );
+    }
+  };
+
   return (
     <Stack
       direction="row"
@@ -20,6 +35,7 @@ const Navbar = () => {
         <img src={logo} alt="logo" height={45} />
       </Link>
       <SearchBar />
+      {checkAndSend()}
     </Stack>
   );
 };
