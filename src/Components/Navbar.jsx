@@ -8,8 +8,8 @@ const Navbar = () => {
   const [isLogin, setIsLogin] = useState(false);
   const checkAndSend = () => {
     if (isLogin) {
-      return <Avatar>D</Avatar>;
       setIsLogin(isLogin);
+      return <Avatar>D</Avatar>;
     } else {
       return (
         <Link to="/login">
