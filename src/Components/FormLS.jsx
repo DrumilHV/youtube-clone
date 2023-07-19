@@ -1,8 +1,42 @@
 import { Box, Stack, Typography } from "@mui/material";
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import GoogleIcon from "@mui/icons-material/Google";
+
 const FormLS = ({ heading, link, message }) => {
+  const [username, setusername] = useState("");
+  const [password, setPassword] = useState("");
+  const [allow, setAllow] = useState(false);
+
+  const navigate = useNavigate();
+  const handelSubmit = async (e) => {
+    e.preventDefault();
+    const userDetails = {
+      username: username,
+      password: password,
+    };
+    const response = await fetch(`http://localhost:3000/${link}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(userDetails),
+    });
+    const data = await response.json();
+    setAllow(data.loggedIn);
+    console.log(allow, userDetails);
+    if (allow) {
+      navigate("/");
+      setusername("");
+      setPassword("");
+    }
+    setusername(username);
+    setPassword(password);
+
+    console.log(data);
+  };
+  // useEffect(() => {
+  //   navigate("/");
+  // }, []);
+
   return (
     <Box
       sx={{
@@ -38,52 +72,61 @@ const FormLS = ({ heading, link, message }) => {
           >
             {heading}
           </Typography>
-          <input
-            type="text"
-            style={{
-              width: "60%",
-              height: "10%",
-              marginLeft: "20%",
-              borderRadius: "10px",
-              marginTop: "20px",
-              marginBottom: "20px",
-              borderColor: "#0079FF",
-              padding: "2%",
-            }}
-            placeholder="user name"
-          />
-          <input
-            type="text"
-            style={{
-              width: "60%",
-              height: "10%",
-              marginLeft: "20%",
-              borderRadius: "10px",
-              marginTop: "5%",
-              marginBottom: "5%",
-              borderColor: "#0079FF",
-              padding: "2%",
-            }}
-            placeholder="password"
-          />
-          <button
-            style={{
-              width: "40%",
-              height: "10%",
-              marginLeft: "30%",
-              borderRadius: "10px",
-              marginTop: "3%",
-              marginBottom: "5%",
-              borderColor: "#0079FF",
-              padding: "2%",
-              backgroundColor: "#0079FF",
-            }}
-          >
-            <Typography variant={{ sx: "h5", sm: "h5" }}>Login</Typography>
-          </button>
+          <form onSubmit={handelSubmit}>
+            <input
+              type="text"
+              onChange={(e) => {
+                setusername(e.target.value);
+              }}
+              style={{
+                width: "60%",
+                height: "10%",
+                marginLeft: "20%",
+                borderRadius: "10px",
+                marginTop: "20px",
+                marginBottom: "20px",
+                borderColor: "#0079FF",
+                padding: "2%",
+              }}
+              value={username}
+              placeholder="user name"
+            />
+            <input
+              type="text"
+              onChange={(e) => setPassword(e.target.value)}
+              style={{
+                width: "60%",
+                height: "10%",
+                marginLeft: "20%",
+                borderRadius: "10px",
+                marginTop: "5%",
+                marginBottom: "5%",
+                borderColor: "#0079FF",
+                padding: "2%",
+              }}
+              value={password}
+              placeholder="password"
+            />
+            <button
+              style={{
+                width: "40%",
+                height: "20%",
+                marginLeft: "30%",
+                borderRadius: "10px",
+                marginTop: "3%",
+                marginBottom: "5%",
+                borderColor: "#0079FF",
+                padding: "4%",
+                backgroundColor: "#0079FF",
+              }}
+            >
+              <Typography variant={{ sx: "h5", sm: "h5" }} align="center">
+                Login
+              </Typography>
+            </button>
+          </form>
           <Typography align="center" variant="h6">
             {message} <Link to={`/${link}`}>{link}</Link>
-            {console.log(link)}
           </Typography>
           <button
             style={{
