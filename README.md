@@ -1,6 +1,11 @@
-# Getting Started with Create React App
+# This is Youtube clone Website (fully responsible)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Here are some of the pages
+<img width="1440" alt="Screenshot 2023-07-28 at 1 03 04 AM-min" src="https://github.com/DrumilHV/youtube-clone/assets/91252875/e518c1bc-8aa5-44b7-ad0a-098e65fca9da">
+Home Page / Feed Page
+
+
+This project was bootstrapped with [Create React App]
 
 ## Available Scripts
 
