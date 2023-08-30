@@ -4,20 +4,27 @@ import { Link } from "react-router-dom";
 import { logo } from "../utils/constants";
 import { Avatar } from "@mui/material";
 import SearchBar from "./SearchBar";
+import {
+  ClerkProvider,
+  RedirectToSignIn,
+  SignIn,
+  SignUp,
+  UserButton,
+} from "@clerk/clerk-react";
 const Navbar = () => {
-  const [isLogin, setIsLogin] = useState(false);
-  const checkAndSend = () => {
-    if (isLogin) {
-      setIsLogin(isLogin);
-      return <Avatar>D</Avatar>;
-    } else {
-      return (
-        <Link to="/login">
-          <Avatar style={{ fontSize: "10px" }}>Login</Avatar>
-        </Link>
-      );
-    }
-  };
+  // const [isLogin, setIsLogin] = useState(false);
+  // const checkAndSend = () => {
+  //   if (isLogin) {
+  //     setIsLogin(isLogin);
+  //     return <Avatar>D</Avatar>;
+  //   } else {
+  //     return (
+  //       <Link to="/login">
+  //         <Avatar style={{ fontSize: "10px" }}>Login</Avatar>
+  //       </Link>
+  //     );
+  //   }
+  // };
 
   return (
     <Stack
@@ -35,7 +42,8 @@ const Navbar = () => {
         <img src={logo} alt="logo" height={45} />
       </Link>
       <SearchBar />
-      {checkAndSend()}
+      {/* {checkAndSend()} */}
+      <UserButton signInUrl="/additionalUser" />
     </Stack>
   );
 };

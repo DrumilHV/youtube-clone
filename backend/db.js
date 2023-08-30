@@ -6,4 +6,11 @@ const pool = new Pool({
   port: 5432,
   database: "ytuser",
 });
-module.exports = pool;
+// const pool = new Pool({
+//   user: "drumil",
+//   password: "XOWzUULb4dfJpnWWp558SA4aSMaoBBAs",
+//   host: "dpg-cirtjp15rnujejticoi0-a",
+//   port: 5432,
+//   database: "ytuser",
+// });
+// module.exports = pool;

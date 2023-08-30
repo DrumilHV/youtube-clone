@@ -1,17 +1,17 @@
-// import express from "express";
-// import cors from "cors";
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const dotenv = require("dotenv");
+dotenv.config();
 const pool = require("./db");
-const port = 3000;
+const port = process.env.HOSTING_PORT;
 
 app.use(express.json());
 app.use(cors());
+// console.log(process.env.HOST);
 
 app.post("/register", async (req, res) => {
   try {
-    // console.log(req.body);
     const { username, password } = req.body;
     const insert = await pool.query(
       "INSERT INTO users(name,password) values($1,$2) RETURNING *",

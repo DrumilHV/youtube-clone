@@ -7,14 +7,12 @@ import {
   demoVideoUrl,
   demoChannelUrl,
 } from "../utils/constants";
-// import { start } from "repl";
 const VideoCard = ({
   video: {
     id: { videoId },
     snippet,
   },
 }) => {
-  console.log(snippet);
   return (
     <Card
       sx={{
