@@ -7,15 +7,13 @@ import {
   SearchFeed,
   Navbar,
   ChannelDetails,
-  Login,
-  Register,
+  // Login,
+  // Register,
 } from "./Components/index";
 import {
   ClerkProvider,
   SignedIn,
   SignedOut,
-  UserButton,
-  useUser,
   SignIn,
   SignUp,
   RedirectToSignIn,

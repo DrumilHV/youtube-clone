@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
+// import  { useState } from "react";
 import { Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import { logo } from "../utils/constants";
-import { Avatar } from "@mui/material";
+// import { Avatar } from "@mui/material";
 import SearchBar from "./SearchBar";
 import {
-  ClerkProvider,
-  RedirectToSignIn,
-  SignIn,
-  SignUp,
+  // ClerkProvider,
+  // RedirectToSignIn,
+  // SignIn,
+  // SignUp,
   UserButton,
 } from "@clerk/clerk-react";
 const Navbar = () => {
